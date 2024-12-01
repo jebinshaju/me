@@ -258,7 +258,11 @@ if (localStorage.getItem('darkMode') === 'enabled') {
   darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
 }
 
-// Add event listener to the button
+// Add event listeners to the button
 darkModeToggle.addEventListener('click', toggleDarkMode);
 
-// ... rest of your existing JavaScript code ...
+// Add touchstart event for mobile devices
+darkModeToggle.addEventListener('touchstart', function(e) {
+  e.preventDefault(); // Prevents duplicate events
+  toggleDarkMode();
+}, { passive: true });

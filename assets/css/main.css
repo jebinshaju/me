@@ -209,14 +209,22 @@ h6 {
   cursor: pointer;
   position: fixed;
   top: 15px;
-  right: 60px; /* Adjust position if needed */
-  z-index: 9999;
+  right: 60px; /* Original position */
+  z-index: 10000; /* Ensure it's above other elements */
   transition: background-color 0.3s;
 }
 
 .header .dark-mode-toggle:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
+
+/* Adjust position for mobile devices */
+@media (max-width: 768px) {
+  .header .dark-mode-toggle {
+    right: 15px; /* Move the button closer to the edge on small screens */
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
