@@ -227,3 +227,38 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+// main.js
+
+// ... existing JavaScript code ...
+
+// Get the dark mode toggle button
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+
+// Function to toggle dark mode
+function toggleDarkMode() {
+  document.documentElement.classList.toggle('dark-mode');
+
+  // Update localStorage
+  if (document.documentElement.classList.contains('dark-mode')) {
+    localStorage.setItem('darkMode', 'enabled');
+    // Change icon to sun
+    darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+  } else {
+    localStorage.setItem('darkMode', 'disabled');
+    // Change icon to moon
+    darkModeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+  }
+}
+
+// Check if dark mode is enabled in localStorage
+if (localStorage.getItem('darkMode') === 'enabled') {
+  document.documentElement.classList.add('dark-mode');
+  // Change icon to sun
+  darkModeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+}
+
+// Add event listener to the button
+darkModeToggle.addEventListener('click', toggleDarkMode);
+
+// ... rest of your existing JavaScript code ...
