@@ -116,7 +116,8 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
+                  <!-- Updated Live Age Counter -->
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="ageCounter"></span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Technology</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
                     <span><a href="mailto:jebinshaju4@gmail.com">jebinshaju4@gmail.com</a></span></li>
@@ -396,7 +397,6 @@
 
     </section><!-- /Projects Section -->
 
-
     <!-- Blogs Section -->
     <section id="blogs" class="blogs section">
 
@@ -443,8 +443,6 @@
       </div>
 
     </section><!-- /Blogs Section -->
-
-    
 
     <!-- Certifications Section -->
     <section id="services" class="services section">
@@ -655,6 +653,27 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- Live Age Counter Script -->
+  <script>
+    // Set your birth date (February 4, 2003)
+    const birthDate = new Date('2003-02-04T00:00:00');
+
+    // Calculate milliseconds per year (using the average 365.2425 days per year)
+    const msPerYear = 365.2425 * 24 * 60 * 60 * 1000;
+
+    function updateAge() {
+      const now = new Date();
+      const diff = now - birthDate; // difference in milliseconds
+      const age = diff / msPerYear;
+      // Update the age counter with the fun message
+      document.getElementById('ageCounter').textContent = "iam " + age.toFixed(9) + " this year young";
+    }
+
+    // Update the age every 10 milliseconds for smooth animation
+    setInterval(updateAge, 10);
+    updateAge(); // initial call
+  </script>
 
 </body>
 
